@@ -4,7 +4,9 @@
 // Any collaboration or use of external resources has been properly cited.
 // I am fully aware of the consequences of academic dishonesty and agree to
 // abide by the university's academic integrity policy.";
-
+#ifndef CODE.H
+#define CODE.H
+#include <stdbool.h>
 
 /*
  * code.h - Assignment 8: File Access and Math Functions
@@ -66,6 +68,16 @@
  */
 
 /* TODO: write the prototypes for functions 1-9 here */
+bool create_abs_txt(const char *filename, int value);
+bool create_fabs_txt(const char *filename, double value);
+bool append_sqrt_txt(const char *filename, double value);
+bool append_pow_txt(const char *filename, double base, double exponent);
+bool create_ceil_floor_txt (const char *filename, double value);
+bool append_round_txt(const char *filename, double value);
+bool append_fmod_txt(const char *filename, double x, double y);
+int load_txt_values(const char *filename, double array[], int max_count);
+bool clear_file(const char *filename);
+
 
 
 /* ========================= PART B: Binary mode ========================= */
@@ -122,6 +134,18 @@
  */
 
 /* TODO: write the prototypes for functions 10-20 here */
+bool create_abs_bin(const char *filename, int value);
+bool create_fabs_bin(const char *filename, double value);
+bool append_sqrt_bin(const char *filename, double value);
+bool append_pow_bin(const char *filename, double base, double exponent);
+bool create_ceil_floor_bin(const char *filename, double value);
+bool append_round_bin(const char *filename, double value);
+bool append_fmod_bin (const char *filename, double x, double y);
+bool load_abs_bin (const char *filename, int *out);
+int load_bin_values(const char *filename, double *arr, int max_count);
+bool load_bin_value_at(const char *filename, int index, double *out);
+long get_file_size(const char *filename);
 
-
+;
 /* TODO: close the include guard here */
+#endif
