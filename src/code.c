@@ -52,7 +52,7 @@
 // TODO]
 bool create_abs_txt (const char *filename, int value)
 {
-if (filename = NULL)
+if (filename == NULL)
     return false;
 
      FILE *file = fopen(filename, "w"); 
@@ -152,9 +152,9 @@ bool append_pow_txt(const char *filename, double base, double exponent)
             return false;
 
     bool success = fprintf(file, "%.2f\n", pow(base, exponent)) > 0;
-    if (file == NULL)
+    if (fclose(file) != 0)
 
-        return false;
+        success = false;
 
         return success;
 }
@@ -335,13 +335,15 @@ bool create_abs_bin(const char *filename, int value)
     return false;
 
     FILE *file = fopen(filename, "wb");
+   
     if (file == NULL)
 
     return false;
 
 
-    double result = fabs(value);
-    bool success = fwrite(&result, sizeof(double), 1, file) == 1;
+    int result = abs(value);
+
+    bool success = fwrite(&result, sizeof(int), 1, file) == 1;
 
     if (fclose(file) != 0)
         success = false;
